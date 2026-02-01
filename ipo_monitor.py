@@ -339,7 +339,7 @@ def main():
     email_sender = os.environ.get('EMAIL_SENDER') or None
     email_password = os.environ.get('EMAIL_PASSWORD') or None
     email_recipient = os.environ.get('EMAIL_RECIPIENT') or email_sender
-    smtp_server = os.environ.get('SMTP_SERVER') or 'smtp.gmail.com'
+    smtp_server = os.environ.get('SMTP_PORT') or 'smtp.gmail.com'
     smtp_port = int(os.environ.get('SMTP_PORT') or '587')
     
     # Validate required environment variables
