@@ -334,12 +334,13 @@ def main():
     logger.info("=" * 50)
     
     # Load configuration from environment variables
-    finnhub_api_key = os.environ.get('FINNHUB_API_KEY')
-    email_sender = os.environ.get('EMAIL_SENDER')
-    email_password = os.environ.get('EMAIL_PASSWORD')
-    email_recipient = os.environ.get('EMAIL_RECIPIENT', email_sender)
-    smtp_server = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
-    smtp_port = int(os.environ.get('SMTP_PORT', '587'))
+    # Note: Use `or` to handle empty strings from CI/CD systems
+    finnhub_api_key = os.environ.get('FINNHUB_API_KEY') or None
+    email_sender = os.environ.get('EMAIL_SENDER') or None
+    email_password = os.environ.get('EMAIL_PASSWORD') or None
+    email_recipient = os.environ.get('EMAIL_RECIPIENT') or email_sender
+    smtp_server = os.environ.get('SMTP_SERVER') or 'smtp.gmail.com'
+    smtp_port = int(os.environ.get('SMTP_PORT') or '587')
     
     # Validate required environment variables
     missing_vars = []
