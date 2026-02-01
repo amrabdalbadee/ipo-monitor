@@ -1,0 +1,7 @@
+# IPO Monitor Dependencies
+
+# HTTP requests library for API calls
+requests>=2.28.0
+
+# Optional: For enhanced timezone handling
+# pytz>=2023.3
